@@ -1,0 +1,5 @@
+python -m venv meu_ambiente_virtual
+source meu_ambiente_virtual/bin/activate
+deactivate
+
+pip install requests

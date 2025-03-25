@@ -1,0 +1,15 @@
+python -m venv meu_ambiente_virtual
+source meu_ambiente_virtual/bin/activate
+deactivate
+
+pip install pytube
+pip install --upgrade pytube
+
+pip install pytubefix
+pip install moviepy speechrecognition sumy
+sudo apt-get install ffmpeg
+pip install pyaudio
+pip install pydub
+pip install youtube-transcript-api nltk transformers
+pip install torch
+pip install tensorflow

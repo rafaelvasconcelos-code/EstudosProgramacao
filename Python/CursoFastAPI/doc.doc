@@ -1,0 +1,20 @@
+python -m venv meu_ambiente_virtual
+source meu_ambiente_virtual/bin/activate
+
+Aula 1 - Configuração do Ambiente
+
+    pip install fastapi
+    pip install "fastapi[standard]"
+    pip install ruff
+    
+    pip freeze > requirements.txt
+    pip install -r requirements.txt
+    
+
+    No terminal, execute o python interativo
+        python -i app.py
+        read_root()
+    
+    fastapi dev app.py 
+    http://127.0.0.1:8000/docs
+    http://127.0.0.1:8000/redoc

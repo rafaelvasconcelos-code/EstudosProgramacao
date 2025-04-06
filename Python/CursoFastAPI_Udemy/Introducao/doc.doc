@@ -1,0 +1,53 @@
+python -m venv meu_ambiente_virtual
+source meu_ambiente_virtual/bin/activate
+
+Aula 1 - Configuracao
+
+PYENV
+
+    sudo apt-get update; sudo apt-get install make build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
+    curl https://pyenv.run | bash
+
+    # pyenv
+gedit ~/.bashrc
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+pyenv --version
+pyenv install -l  -- Lista as versões disponiveis de download do python
+pyenv install 3.13.2
+pyenv versions --versoes instaladas no computador
+pyenv global 3.13.2  --Tornar a versão default do pyenv
+
+
+
+POENTRY
+    pip+env
+
+    curl -sSL https://install.python-poetry.org | python3 -
+
+Aula 2 ->
+    
+    Inicializando o projeto:
+        poetry init
+            criou o pyproject.toml
+        poetry env activate
+        poetry env info
+        poetry env list
+
+        poetry add pydantic
+
+        Caso o seletor do Visual Studio não selecione o interpredor correto,
+            clique em CTRL+SHIFT + P, Python Select interpredor.
+            Vai até a pasta /home/rafael/.cache/poetry/virtualenv/nome_xpto/bin/python
+
+    Type Hint:
+    
+
+
+    Aula  -> Projeto 1

@@ -1,0 +1,35 @@
+    Inicializando o projeto:
+        poetry init
+            criou o pyproject.toml
+        poetry env activate
+        poetry env info
+        poetry env info -p  --path da virtual env para colar no visual studio
+        poetry env list
+
+        poetry add  fastapi uvicorn requests aiohttp sqlalchemy psycopg2-binary pytest alembic python-decouple
+
+        Caso o seletor do Visual Studio não selecione o interpredor correto,
+            clique em CTRL+SHIFT + P, Python Select interpredor.
+            Insira o resgistro que apareceu em poetry env info -p 
+
+    Aula  -> Projeto 1
+        uvicorn main:app --reload
+
+Existem 3 tipos de rotas:
+    #path parameter
+
+                @router.get("/convert/{from_currency}")
+                def converter(from_currency:str):
+                    return "It Work"
+
+    #query parameter
+        /url?to_currencies=USD,EUR,GPD&price=5.5
+                @router.get("/convert/{from_currency}")
+                def converter(from_currency:str,to_currencies:str,price:float):
+                    return "It Work"        
+    #body parameter
+
+    Toda vez que for executar uma aplicação, tem que executar 1°
+    o source .env
+
+    

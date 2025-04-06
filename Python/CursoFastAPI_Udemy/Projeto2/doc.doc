@@ -1,0 +1,16 @@
+poetry init
+poetry add  fastapi uvicorn requests aiohttp sqlalchemy psycopg2-binary pytest alembic python-decouple
+
+  poetry env activate
+        poetry env info
+        poetry env info -p  --path da virtual env para colar no visual studio
+        poetry env list
+
+         uvicorn main:app --reload
+
+         docker build -t app .
+         docker-compose run app
+         docker-compose up app
+         docker-compose up app --d
+         docker-compose up ṕostgresql --d  --Não fica apresentando Log no terminal
+         docker-compose up pgadmin --d

@@ -1,5 +1,16 @@
 python -m venv meu_ambiente_virtual
 source meu_ambiente_virtual/bin/activate
+source meu_ambiente_virtual/Scripts/activate
+
 deactivate
 
 pip install requests
+pip install fastapi
+pip install google
+pip install openai
+pip install google-genai
+pip install firebase-admin
+pip install google-cloud-storage
+
+
+uvicorn testando3:app --reload --port 5000

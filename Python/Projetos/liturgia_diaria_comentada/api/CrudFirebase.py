@@ -3,37 +3,32 @@ import json
 import firebase_admin
 from firebase_admin import credentials, storage,db
 import os
-from google.cloud import storage
+from datetime import datetime
 
 
-def gerar_arquivo():
+def gerar_arquivo(dados_json,data):
+   
    cred = credentials.Certificate(".\leitura-diaria-comentada-a893f-firebase-adminsdk-fbsvc-be6fa2af8c.json")
-   firebase_admin.initialize_app(cred, {
-    'storageBucket': 'leitura-diaria-comentada-a893f.firebasestorage.app'  # Seu bucket
-   })
-
-# Variável JSON (dicionário Python)
-   dados_json = {
-    "versiculos": {
-        "exodo_3_1": "Moisés pastoreava o rebanho...",
-        "exodo_3_2": "E o anjo do Senhor..."
-    }
-   }
+   if not firebase_admin._apps:
+      firebase_admin.initialize_app(cred, {
+      'storageBucket': 'leitura-diaria-comentada-a893f.firebasestorage.app'  # Seu bucket
+      })
 
 # Converter o dicionário pra string JSON
-   dados_string = json.dumps(dados_json)
+   dados_string = json.dumps(dados_json).encode('utf-8')
 
 # Conectar ao bucket
    bucket = storage.bucket()
 
+   data_atual_formatada = data.strftime("%Y%m%d")
+
 # Definir o caminho no Storage onde o arquivo será salvo
-   caminho_no_storage = 'versiculos2/dados2.json'
+   caminho_no_storage = f'leituraDiaria/{data_atual_formatada}.json'
 
 # Fazer upload diretamente da string
    try:
        blob = bucket.blob(caminho_no_storage)
        blob.upload_from_string(dados_string, content_type='application/json')
-       print(f"JSON gravado com sucesso em '{caminho_no_storage}'!")
    except Exception as e:
        print(f"Erro ao gravar o JSON: {e}")
 
@@ -72,6 +67,3 @@ def ler_arquivo():
    #blob.download_to_filename(arquivo_destino)
 
    print(f"Arquivo salvo como {arquivo_destino}") 
-
-
-ler_arquivo()
